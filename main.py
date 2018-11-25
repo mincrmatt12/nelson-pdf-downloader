@@ -31,6 +31,7 @@ def main(product, session, server, output):
         for i in files:
             args.append(i)
             args.append("1-z")
+        click.echo('Running QPDF, this might take a while...')
         args.extend(["--", output])
         subprocess.run(args, check=True)
 

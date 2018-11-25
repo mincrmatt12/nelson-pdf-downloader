@@ -9,4 +9,4 @@ def download(through_book, url):
 def download_all(urls, through_book):
     with ThreadPool(4) as p:
         func = functools.partial(download, through_book)
-        return list(tqdm(p.imap(func, urls), unit="file", total=len(urls)))
+        return list(tqdm(p.imap(func, urls), desc="Downloading PDFs", unit="file", total=len(urls)))
