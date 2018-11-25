@@ -1,0 +1,4 @@
+colorama
+click
+requests
+tqdm
