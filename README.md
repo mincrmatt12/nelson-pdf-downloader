@@ -34,6 +34,14 @@ These are your "Session ID" and "Server ID" respectively.
 Now run the `main.py` script, enter the values when prompted (or use the optional command line arguments), and sit back and relax while the script downloads everything.
 By default the pdf will be called `output.pdf`, although you can change this with the `-o` command line option.
 
+## Common errors
+
+Q: I get a JSON error
+A: Your session probably expired, try re-logging in and updating your session and server id
+
+Q: I get invalid book structure
+A: Make sure the tree index is set to which position in the nelson viewer the pdfs are, e.g. on chemistry 11U it is the first index so it should be 0
+
 ## Format
 
 Appears to have two main files, `https://www.mynelson.com/mynelson/service/explorer/getexplorerinterface.json` and `https://www.mynelson.com/mynelson/service/productdetail/links.json`.

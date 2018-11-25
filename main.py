@@ -12,11 +12,12 @@ import subprocess
 @click.option("--session", type=str, prompt="Session ID (find by logging in and copying it)", help="JSESSIONID")
 @click.option("--server", type=str, prompt="Server ID (weird tomcat server id)")
 @click.option("-o", "--output", type=click.Path(writable=True), default="output.pdf")
-def main(product, session, server, output):
+@click.option("--tree-index", type=int, default=1, help="Which tree index to download from (default 1, 0-indexed)")
+def main(product, session, server, output, tree_index):
     book = niter.Book(product, session, server)
     click.echo("Using book {}".format(book.title))
 
-    urls, names = tree.get_tree_url(book)
+    urls, names = tree.get_tree_url(book, tree_index)
     all_contents = downloader.download_all(urls, book)
     click.echo("Got {} PDFs to merge".format(len(all_contents)))
 

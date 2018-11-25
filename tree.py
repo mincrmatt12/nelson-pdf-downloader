@@ -10,7 +10,7 @@ def recurse(level: niter.Level):
             x.extend(recurse(i))
     return x
 
-def get_tree_url(book_obj: niter.Book):
+def get_tree_url(book_obj: niter.Book, tree_index):
     """
     Grab the list of pdfs from a Book object.
 
@@ -18,14 +18,14 @@ def get_tree_url(book_obj: niter.Book):
     with the user if the name makes sense.
     """
 
-    if len(book_obj) != 2:
+    if len(book_obj) < tree_index + 1:
         click.echo(colorama.Fore.RED + "Invalid book structure, manually change script to download.", err=True)
         raise click.Abort()
 
-    if not click.confirm("Book tree name is {}, does this make sense? ".format(book_obj[1].title)):
+    if not click.confirm("Book tree name is {}, does this make sense? ".format(book_obj[tree_index].title)):
         raise click.Abort()
     
-    child_attrs = recurse(book_obj[1])
+    child_attrs = recurse(book_obj[tree_index])
     urls = []
     names = []
 
