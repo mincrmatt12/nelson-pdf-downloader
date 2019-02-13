@@ -9,10 +9,10 @@ import subprocess
 
 @click.command()
 @click.option('-p', '--product', type=int, prompt="Product ID (find url of explorer pid)", help="Nelson Product ID")
-@click.option("--session", type=str, prompt="Session ID (find by logging in and copying it)", help="JSESSIONID")
+@click.option("--session", type=str, prompt="Session ID (find by logging in and copying it)", help="Cookie: JSESSIONID")
 @click.option("--server", type=str, prompt="Server ID (weird tomcat server id)")
 @click.option("-o", "--output", type=click.Path(writable=True), default="output.pdf")
-@click.option("--tree-index", type=int, default=1, help="Which tree index to download from (default 1, 0-indexed)")
+@click.option("--tree-index", type=int, default=1, help="Which tree index (in navigation view, first column, which entry has the PDFs) to download from (default 1, 0-indexed)")
 def main(product, session, server, output, tree_index):
     book = niter.Book(product, session, server)
     click.echo("Using book {}".format(book.title))
