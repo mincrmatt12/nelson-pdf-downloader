@@ -3,7 +3,7 @@
 This tool uses the myNelson internal API to download entire nelson eBooks as a PDF.
 
 ---
-_**warning: the use of this tool to rip entire books and share them online is not endorsed by me in any way and any consequences from such actions are entirely your fault**_
+_**warning: the use of this tool to rip entire books and share them online is not endorsed by me in any way and any consequences from such actions are entirely your fault -- see the license for more information**_
 
 ---
 
