@@ -2,6 +2,11 @@
 
 This tool uses the myNelson internal API to download entire nelson eBooks as a PDF.
 
+---
+_**warning: the use of this tool to rip entire books and share them online is not endorsed by me in any way and any consequences from such actions are entirely your fault**_
+
+---
+
 ## Requirements
 
 - python3
@@ -35,14 +40,15 @@ Now run the `main.py` script, enter the values when prompted (or use the optiona
 By default the pdf will be called `output.pdf`, although you can change this with the `-o` command line option.
 
 ## Common errors
+Q: I get a JSON error
 
-- Q: I get a JSON error
-- A: Your session probably expired, try re-logging in and updating your session and server id
+A: Your session probably expired, try re-logging in and updating your session and server id
 
-- Q: I get invalid book structure
-- A: Make sure the tree index is set to which position in the nelson viewer the pdfs are, e.g. on chemistry 11U it is the first index so it should be 0
+Q: I get invalid book structure 
 
-## Format
+A: Make sure the "tree index" is set to which position in the nelson viewer the pdfs are, in the picture above it would be 1 -- counting from zero the PDFs appear under the 2nd item in the first list.
+
+## API reverse engineering information
 
 Appears to have two main files, `https://www.mynelson.com/mynelson/service/explorer/getexplorerinterface.json` and `https://www.mynelson.com/mynelson/service/productdetail/links.json`.
 
