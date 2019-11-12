@@ -75,4 +75,4 @@ def merge(pdf_streams, names, outpath, first_page):
             last = x
             pbar.update(g)
 
-        output.save(outpath, progress=last)
+        output.save(outpath, progress=update)
