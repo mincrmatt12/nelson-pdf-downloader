@@ -1,6 +1,7 @@
 import pikepdf
 import io
 import tqdm
+import click
 
 def get_real_name(name):
     """
@@ -68,4 +69,5 @@ def merge(pdf_streams, names, outpath, first_page):
             ]
         }
     
+    click.echo("Writing output to file, this can take a while.")
     output.save(outpath)
