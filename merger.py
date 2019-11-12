@@ -27,7 +27,7 @@ def append_pdf(pdf_out, pdf_in_stream, name):
         pdf_out.root.Outlines = pdf_out.make_indirect({
             "/First": pdf_out.make_indirect({
                 "/Title": get_real_name(name),
-                "/Dest": [pdf_out.pages[-len(pdf_in.pages)], "/Fit"]
+                "/Dest": [pdf_out.pages[-len(pdf_in.pages)], pikepdf.Name("/Fit")]
             })
         })
         pdf_out.root.Outlines.First.Parent = pdf_out.root.Outlines
@@ -37,7 +37,7 @@ def append_pdf(pdf_out, pdf_in_stream, name):
             "/Title": get_real_name(name),
             "/Parent": pdf_out.root.Outlines,
             "/Prev": pdf_out.root.Outlines.Last,
-            "/Dest": [pdf_out.pages[-len(pdf_in.pages)], "/Fit"]
+            "/Dest": [pdf_out.pages[-len(pdf_in.pages)], pikepdf.Name("/Fit")]
         })
         pdf_out.root.Outlines.Last = pdf_out.root.Outlines.Last.Next
 
@@ -68,4 +68,11 @@ def merge(pdf_streams, names, outpath, first_page):
         }
     
     with tqdm.tqdm(total=100, desc="Writing PDF") as pbar:
-        output.save(outpath, progress=pbar.update)
+        last = 0
+        def update(x):
+            nonlocal last
+            g = x - last
+            last = x
+            pbar.update(g)
+
+        output.save(outpath, progress=last)
