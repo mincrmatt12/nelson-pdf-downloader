@@ -50,8 +50,6 @@ def merge(pdf_streams, names, outpath, first_page):
     for stream, name in tqdm.tqdm(zip(pdf_streams, names), total=len(names), desc="Merging PDFs"):
         pgcounts.append(append_pdf(output, stream, name))
     
-    output.remove_unreferenced_resources()
-
     # add page numbering
 
     amount_of_contents = 0
@@ -69,5 +67,5 @@ def merge(pdf_streams, names, outpath, first_page):
             ]
         }
     
-    click.echo("Writing output to file, this can take a while.")
-    output.save(outpath)
+    with tqdm.tqdm(total=100, desc="Writing PDF") as pbar:
+        output.save(outpath, progress=pbar.update)
