@@ -2,3 +2,4 @@ colorama
 click
 requests
 tqdm
+pikepdf

@@ -16,9 +16,8 @@ pip (requirements.txt):
 - colorama
 - tqdm
 - requests
+- pikepdf
 
-command line utils:
-- qpdf
 
 ## Usage
 
