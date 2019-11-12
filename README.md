@@ -46,7 +46,8 @@ A: Your session probably expired, try re-logging in and updating your session an
 
 Q: I get invalid book structure 
 
-A: Make sure the "tree index" is set to which position in the nelson viewer the pdfs are, in the picture above it would be 1 -- counting from zero the PDFs appear under the 2nd item in the first list.
+A: Make sure the "tree index" is set to which position in the nelson viewer the pdfs are, in the picture above it would be 1 -- counting from zero the PDFs appear under the 2nd item in the first list. If you're getting this error, you can probably solve it
+by passing `--tree-index 0` to the downloader.
 
 ## API reverse engineering information
 
