@@ -48,6 +48,10 @@ Q: I get invalid book structure
 A: Make sure the "tree index" is set to which position in the nelson viewer the pdfs are, in the picture above it would be 1 -- counting from zero the PDFs appear under the 2nd item in the first list. If you're getting this error, you can probably solve it
 by passing `--tree-index 0` to the downloader.
 
+Q: I get a `KeyError` when attempting to download an eBook.
+
+A: The tool is only compatible with books that are distributed as PDFs in the nelson UI. Specifically, when you "open" the book there should be an interface similar to the pictures above which let you select per-chapter-section PDFs. For more information see issue #2.
+
 ## API reverse engineering information
 
 Appears to have two main files, `https://www.mynelson.com/mynelson/service/explorer/getexplorerinterface.json` and `https://www.mynelson.com/mynelson/service/productdetail/links.json`.
