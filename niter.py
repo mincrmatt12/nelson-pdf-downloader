@@ -71,7 +71,7 @@ class Book:
 
     def send_request(self, url, **kwargs):
         return requests.get(url, cookies={"JSESSIONID": self.session_id,
-                                          "BIGipServerwhcinxtomcat8p": self.server_id},
+                                          "X-Oracle-BMC-LBS-Route": self.server_id},
                                 headers={"User-Agent": "curl/7.58.0"}, **kwargs)
 
     def load(self):
