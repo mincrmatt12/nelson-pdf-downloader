@@ -23,23 +23,8 @@ def append_pdf(pdf_out, pdf_in_stream, name):
 
     pdf_out.pages.extend(pdf_in.pages)
 
-    if "/Outlines" not in pdf_out.root:
-        pdf_out.root.Outlines = pdf_out.make_indirect({
-            "/First": pdf_out.make_indirect({
-                "/Title": get_real_name(name),
-                "/Dest": [pdf_out.pages[-len(pdf_in.pages)], pikepdf.Name("/Fit")]
-            })
-        })
-        pdf_out.root.Outlines.First.Parent = pdf_out.root.Outlines
-        pdf_out.root.Outlines.Last = pdf_out.root.Outlines.First
-    else:
-        pdf_out.root.Outlines.Last.Next = pdf_out.make_indirect({
-            "/Title": get_real_name(name),
-            "/Parent": pdf_out.root.Outlines,
-            "/Prev": pdf_out.root.Outlines.Last,
-            "/Dest": [pdf_out.pages[-len(pdf_in.pages)], pikepdf.Name("/Fit")]
-        })
-        pdf_out.root.Outlines.Last = pdf_out.root.Outlines.Last.Next
+    with pdf_out.open_outline() as outline:
+        outline.root.append(pikepdf.OutlineItem(get_real_name(name), len(pdf_out.pages) - len(pdf_in.pages)))
 
     return len(pdf_in.pages)
 
