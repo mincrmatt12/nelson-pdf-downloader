@@ -29,11 +29,11 @@ Login to your myNelson account and go to the book you wish to download. Take not
 This is the "Product ID"
 
 Next, open up the dev tools and find the cookies for a request to `getexplorerinterface.json`.
-Take note of the cookie `JSESSIONID` and `BIGipServerwhcinxtomcat8p`.
+Take note of the cookie `JSESSIONID` and `X-Oracle-BMC-LBS-Route`. These are your "Session ID" and "Server ID" respectively.
 
 ![chrome cookies panel](/img/cookie.png?raw=true)
 
-These are your "Session ID" and "Server ID" respectively.
+(note this picture is a bit out of date and has the old name for the "server id")
 
 Now run the `main.py` script, enter the values when prompted (or use the optional command line arguments), and sit back and relax while the script downloads everything.
 By default the pdf will be called `output.pdf`, although you can change this with the `-o` command line option.
