@@ -4,8 +4,8 @@
 
 import requests
 
-GET_EXP_INTER = "http://www.mynelson.com/mynelson/service/explorer/getexplorerinterface.json"
-GET_LINKS     = "http://www.mynelson.com/mynelson/service/productdetail/links.json"
+GET_EXP_INTER = "https://www.mynelson.com/mynelson/service/explorer/getexplorerinterface.json"
+GET_LINKS     = "https://www.mynelson.com/mynelson/service/productdetail/links.json"
 GET_CONT_URL  = "https://www.mynelson.com/mynelson/service/openlink/getLinkURL.json"
 
 class Link:
