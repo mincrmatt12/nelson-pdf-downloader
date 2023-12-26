@@ -1,3 +1,6 @@
+> [!CAUTION]
+> This project has been archived as the upstream API seems to have been changed following a redesign.
+
 # NelsonDownloadPDF
 
 This tool uses the myNelson internal API to download entire nelson eBooks as a PDF.
